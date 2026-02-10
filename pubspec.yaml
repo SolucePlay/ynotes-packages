@@ -2,7 +2,7 @@ name: ynotes_packages
 description: yNotes' components library.
 publish_to: "none"
 version: 0.6.6
-homepage: https://github.com/soluceplay/ynotes-packages
+homepage: https://github.com/EduWireApps/ynotes-packages
 
 environment:
   sdk: ">=2.17.0-0 <3.0.0"
