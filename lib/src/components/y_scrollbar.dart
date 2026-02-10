@@ -9,7 +9,7 @@ class YScrollbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RawScrollbar(
-      isAlwaysShown: isAlwaysShown,
+      thumbVisibility: true,
       thumbColor: theme.colors.foregroundLightColor,
       radius: Radius.circular(YScale.s2),
       thickness: YScale.s2,

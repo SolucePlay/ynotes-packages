@@ -163,19 +163,19 @@ class _CustomActions {
         builder: (BuildContext context, Widget? child) => Theme(
             data: ThemeData(
                 colorScheme: _colorScheme(Brightness.light),
-                dialogBackgroundColor: theme.colors.backgroundLightColor,
                 buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
                 textTheme:
-                    TextTheme(subtitle1: theme.texts.body1.copyWith(color: theme.colors.foregroundColor, height: 1.5)),
+                    TextTheme(titleMedium: theme.texts.body1.copyWith(color: theme.colors.foregroundColor, height: 1.5)),
                 inputDecorationTheme: InputDecorationTheme(
                   filled: true,
                   fillColor: theme.colors.backgroundColor,
                   contentPadding: YPadding.p(YScale.s3),
                   border: UnderlineInputBorder(borderSide: BorderSide.none, borderRadius: YBorderRadius.lg),
                   labelStyle: theme.texts.body1,
-                )),
+                ), dialogTheme: DialogThemeData(backgroundColor: theme.colors.backgroundLightColor)),
             child: child!));
     if (date != null) return DateFormat("dd/MM/yyyy").format(date);
+    return null;
   }
 
   static Future<String?> pickDateRange(
@@ -192,15 +192,15 @@ class _CustomActions {
         builder: (BuildContext context, Widget? child) => Theme(
             data: ThemeData(
               colorScheme: _colorScheme(theme.isDark ? Brightness.dark : Brightness.light),
-              dialogBackgroundColor: theme.colors.backgroundLightColor,
               buttonTheme: const ButtonThemeData(textTheme: ButtonTextTheme.primary),
               textTheme:
-                  TextTheme(subtitle1: theme.texts.body1.copyWith(color: theme.colors.foregroundColor, height: 1.5)),
+                  TextTheme(titleMedium: theme.texts.body1.copyWith(color: theme.colors.foregroundColor, height: 1.5)), dialogTheme: DialogThemeData(backgroundColor: theme.colors.backgroundLightColor),
             ),
             child: child!));
     if (date != null) {
-      return DateFormat("dd/MM/yyyy").format(date.start) + " - " + DateFormat("dd/MM/yyyy").format(date.end);
+      return "${DateFormat("dd/MM/yyyy").format(date.start)} - ${DateFormat("dd/MM/yyyy").format(date.end)}";
     }
+    return null;
   }
 
   static Future<String?> pickOption(BuildContext context,
@@ -214,6 +214,7 @@ class _CustomActions {
       ),
     );
     if (res != null) return "$res. ${options[res].label}";
+    return null;
   }
 
   static Future<String?> pickTime(BuildContext context, {required TimeOfDay initialTime}) async {
@@ -227,16 +228,15 @@ class _CustomActions {
             ),
             child: child!));
     if (time != null) return "${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}";
+    return null;
   }
 
   static ColorScheme _colorScheme(Brightness brightness) => ColorScheme(
-      background: theme.colors.backgroundLightColor, // Useless
-      onBackground: theme.colors.foregroundColor, // Useless
       primary: theme.colors.primary.backgroundColor,
-      primaryVariant: theme.colors.primary.lightColor,
+      primaryContainer: theme.colors.primary.lightColor,
       onPrimary: theme.colors.primary.foregroundColor,
       secondary: theme.colors.backgroundLightColor, // Useless
-      secondaryVariant: theme.colors.backgroundColor, // Useless
+      secondaryContainer: theme.colors.backgroundColor, // Useless
       onSecondary: theme.colors.foregroundColor, // Useless
       surface: theme.colors.backgroundLightColor,
       onSurface: theme.colors.foregroundColor,

@@ -45,15 +45,13 @@ class YTheme {
   ThemeData get themeData => ThemeData(
       colorScheme: ColorScheme(
         primary: colors.backgroundLightColor,
-        primaryVariant: colors.backgroundColor,
+        primaryContainer: colors.backgroundColor,
         onPrimary: colors.foregroundColor,
         secondary: colors.primary.backgroundColor,
-        secondaryVariant: colors.primary.lightColor,
+        secondaryContainer: colors.primary.lightColor,
         onSecondary: colors.primary.foregroundColor,
         error: colors.danger.backgroundColor,
         onError: colors.danger.foregroundColor,
-        background: colors.backgroundColor,
-        onBackground: colors.foregroundColor,
         surface: colors.backgroundLightColor,
         onSurface: colors.foregroundLightColor,
         brightness: theme.isDark ? Brightness.dark : Brightness.light,
